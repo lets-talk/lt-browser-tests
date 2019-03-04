@@ -9,6 +9,7 @@ require 'selenium-webdriver'
 require 'faker'
 require 'uri'
 require 'byebug'
+require 'rspec/retry'
 
 require './support/pages/page'
 
@@ -57,15 +58,27 @@ end
 Capybara.javascript_driver = :client
 Capybara.default_driver = :agent
 Capybara.app_host = 'http://pingpong.staging.letsta.lk'
-Capybara.default_max_wait_time = 30
+Capybara.default_max_wait_time = 20
 
 RSpec.configure do |config|
   config.before do
     config.include Capybara::DSL
+    config.verbose_retry = true
+    config.display_try_failure_messages = true
+  end
+
+  config.around :each, type: :feature do |ex|
+    ex.run_with_retry retry: 3
   end
 
   config.after do |example_group|
     # Capybara screenshot config
     Capybara::Screenshot.screenshot_and_save_page if example_group.exception
+  end
+
+  # callback to be run between retries
+  config.retry_callback = proc do |ex|
+    # run some additional clean up task - can be filtered by example metadata
+    Capybara.reset! if ex.metadata[:type] == :feature
   end
 end
