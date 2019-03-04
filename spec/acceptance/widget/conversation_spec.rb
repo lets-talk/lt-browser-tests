@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'conversation', type: feature do
+describe 'conversation', retry: 3, type: feature do
   let(:client_name) { Faker::Name.name }
   let(:client_message_1) { Faker::Lorem.sentence(3) }
   let(:client_message_2) { Faker::Lorem.sentence(3) }
