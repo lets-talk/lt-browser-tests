@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'rate', type: feature do
+describe 'rate', retry: 3, type: feature do
   let(:client_name) { Faker::Name.name }
   let(:agent) {
     SessionSteps::Agent.new(
