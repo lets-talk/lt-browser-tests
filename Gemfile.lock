@@ -131,6 +131,8 @@ GEM
     rspec-mocks (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
+    rspec-retry (0.6.1)
+      rspec-core (> 3.3)
     rspec-support (3.8.0)
     rubocop (0.61.1)
       jaro_winkler (~> 1.5.1)
@@ -175,6 +177,7 @@ DEPENDENCIES
   rake
   reek
   rspec
+  rspec-retry
   rubocop
   rubocop-rspec
   selenium-webdriver
