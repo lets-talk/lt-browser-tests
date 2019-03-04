@@ -1,0 +1,5 @@
+:widget_src: ../widget.js
+:organization_subdomain: pingpong
+:environment: staging
+:login_type: default
+:rate_type: :Binary

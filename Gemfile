@@ -1,14 +1,17 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-gem 'capybara'
-gem 'rake'
-gem 'rspec'
-gem 'pry'
-gem 'selenium-webdriver'
-gem 'chromedriver-helper'
+source 'https://rubygems.org'
+
 gem 'byebug'
-gem 'rubocop'
+gem 'capybara'
+gem 'chromedriver-helper'
+gem 'dotenv-rails', groups: %i[development test]
 gem 'faker'
-gem 'rubocop-rspec'
+gem 'httparty'
+gem 'pry'
+gem 'rake'
 gem 'reek'
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'rspec'
+gem 'rubocop'
+gem 'rubocop-rspec'
+gem 'selenium-webdriver'

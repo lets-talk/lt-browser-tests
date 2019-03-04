@@ -6,6 +6,7 @@ require 'capybara/rspec'
 require 'capybara/dsl'
 require 'selenium-webdriver'
 require 'faker'
+require 'uri'
 require 'byebug'
 
 require './support/pages/page'

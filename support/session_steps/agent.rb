@@ -13,6 +13,11 @@ module SessionSteps
 
     def initialize(email:, password:, session:)
       @session = session
+      @pages = nil
+      add_pages(email: email, password: password)
+    end
+
+    def add_pages(email:, password:)
       @pages = {
         conversations_list: ConversationsList.new(session: @session),
         messages: ConversationMessages.new(session: @session),

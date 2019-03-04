@@ -9,15 +9,16 @@ module Pages
     # @author [danielbarria]
     #
     class Login < Page
-      attr_reader :email, :name
-      def initialize(session:, name:, email:)
+      attr_reader :email, :name, :widget
+      def initialize(session:, name:, email:, widget:)
         super(session: session)
         @name = name
         @email = email
+        @widget = widget
       end
 
       def login
-        visit_widget_examples
+        visit_widget_examples(query_params: widget.query_params)
         session.within_frame 'lt-messenger-iframe' do
           session.fill_in 'nombre', with: name
           session.fill_in 'email', with: email
@@ -27,8 +28,9 @@ module Pages
 
       private
 
-      def visit_widget_examples
-        session.visit(ENV['WIDGET_URL'])
+      def visit_widget_examples(query_params:)
+        url = "#{ENV['WIDGET_URL']}?#{query_params}"
+        session.visit(url)
         session.click_button('Chat')
         expect(session).to have_selector('#lt-messenger-iframe')
       end
