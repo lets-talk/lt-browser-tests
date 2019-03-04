@@ -38,6 +38,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    capybara-screenshot (1.0.22)
+      capybara (>= 1.0, < 4)
+      launchy
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (2.1.0)
@@ -71,6 +74,8 @@ GEM
     io-like (0.3.0)
     jaro_winkler (1.5.1)
     kwalify (0.7.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -161,6 +166,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  capybara-screenshot
   chromedriver-helper
   dotenv-rails
   faker

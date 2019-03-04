@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'byebug'
 gem 'capybara'
+gem 'capybara-screenshot'
 gem 'chromedriver-helper'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'faker'

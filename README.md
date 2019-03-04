@@ -9,3 +9,8 @@ This project use following principles:
   - Use namespace to separate every system and pages to scope helpers
 - SessionSteps classes to define what pages can be access by a user type
   - Every class must inherit from support/session_steps/session_steps.rb to add helper methods to User type instance
+
+
+By default capybara use selenium chrome driver headless. If you want to use chrome not headless run with:
+
+`HEADLESS=false rspec`
