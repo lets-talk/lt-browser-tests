@@ -1,5 +1,5 @@
 :widget_src: ../widget.js
 :organization_subdomain: pingpong
-:environment: staging
+:environment: qak
 :login_type: default
 :rate_type: :Binary

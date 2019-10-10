@@ -57,7 +57,7 @@ end
 
 Capybara.javascript_driver = :client
 Capybara.default_driver = :agent
-Capybara.app_host = 'http://pingpong.staging.letsta.lk'
+Capybara.app_host = 'http://pingpong.qak.letsta.lk:8000'
 Capybara.default_max_wait_time = 20
 
 RSpec.configure do |config|
@@ -74,6 +74,7 @@ RSpec.configure do |config|
   config.after do |example_group|
     # Capybara screenshot config
     Capybara::Screenshot.screenshot_and_save_page if example_group.exception
+    Capybara.current_session.driver.quit
   end
 
   # callback to be run between retries
