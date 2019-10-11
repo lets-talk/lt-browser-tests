@@ -25,12 +25,12 @@ Dir.glob(session_paths).each { |file| require file }
 Capybara.save_path = './tmp/screenshots'
 Capybara::Screenshot.prune_strategy = :keep_last_run
 
-chrome_args = %w[headless disable-gpu --lang=es]
+chrome_args = %w[disable-gpu window-size=1024,768]
 
-if ENV.key?('HEADLESS') && ENV['HEADLESS'] == 'false'
-  chrome_args.delete('headless')
-  chrome_args.delete('disable-gpu')
-end
+# if ENV.key?('HEADLESS') && ENV['HEADLESS'] == 'false'
+#   chrome_args.delete('headless')
+#   chrome_args.delete('disable-gpu')
+# end
 
 capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
   chromeOptions: {
@@ -42,19 +42,22 @@ capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
 Capybara.register_driver :client do |app|
   Capybara::Selenium::Driver.new(
     app,
-    browser: :chrome,
-    desired_capabilities: capabilities
+    browser: :remote,
+    desired_capabilities: capabilities,
+    url: 'http://chrome.com:4444/wd/hub'
   )
 end
 
 Capybara.register_driver :agent do |app|
   Capybara::Selenium::Driver.new(
     app,
-    browser: :chrome,
-    desired_capabilities: capabilities
+    browser: :remote,
+    desired_capabilities: capabilities,
+    url: 'http://chrome.com:4444/wd/hub'
   )
 end
 
+Capybara.server_host = 'chrome.com'
 Capybara.javascript_driver = :client
 Capybara.default_driver = :agent
 Capybara.app_host = 'http://pingpong.qak.letsta.lk:8000'
