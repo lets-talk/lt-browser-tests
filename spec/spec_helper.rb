@@ -17,13 +17,14 @@ require './support/pages/page'
 pages_paths = File.join(Dir.pwd, 'support', 'pages', '**', '*.rb')
 Dir.glob(pages_paths).each { |file| require file }
 
+require './support/session_steps/session_steps.rb'
 # loading session  files
 session_paths = File.join(Dir.pwd, 'support', 'session_steps', '**', '*.rb')
 Dir.glob(session_paths).each { |file| require file }
 
 # Capybara screenshot config
-Capybara.save_path = './tmp/screenshots'
-Capybara::Screenshot.prune_strategy = :keep_last_run
+# Capybara.save_path = './tmp/screenshots'
+# Capybara::Screenshot.prune_strategy = :keep_last_run
 
 chrome_args = %w[disable-gpu window-size=1024,768]
 
@@ -76,7 +77,7 @@ RSpec.configure do |config|
 
   config.after do |example_group|
     # Capybara screenshot config
-    Capybara::Screenshot.screenshot_and_save_page if example_group.exception
+    # Capybara::Screenshot.screenshot_and_save_page if example_group.exception
     Capybara.current_session.driver.quit
   end
 
