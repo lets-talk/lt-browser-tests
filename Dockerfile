@@ -13,5 +13,3 @@ RUN bundle install --jobs=4 --retry=3
 COPY . .
 
 RUN chmod +x /browser-tests/run_tests.sh
-
-# CMD RAILS_ENV=qak bundle exec puma -C config/puma.rb
