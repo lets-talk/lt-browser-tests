@@ -12,7 +12,7 @@ module Pages
       class Binary < Page
         def select_yes
           session.within_frame 'lt-messenger-iframe' do
-            session.click_button 'Sí'
+            session.click_button 'Yes'
           end
         end
       end

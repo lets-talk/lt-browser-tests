@@ -6,7 +6,7 @@ gem 'byebug'
 gem 'capybara'
 gem 'capybara-screenshot'
 gem 'chromedriver-helper'
-gem 'dotenv-rails', groups: %i[development test]
+gem 'dotenv-rails'
 gem 'faker'
 gem 'httparty'
 gem 'pry'

@@ -20,9 +20,9 @@ module Pages
       def login
         visit_widget_examples(query_params: widget.query_params)
         session.within_frame 'lt-messenger-iframe' do
-          session.fill_in 'nombre', with: name
+          session.fill_in 'name', with: name
           session.fill_in 'email', with: email
-          session.click_button 'Comenzar'
+          session.click_button 'Start'
         end
       end
 
