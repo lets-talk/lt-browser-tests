@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'conversation', retry: 3, type: feature do
-  let(:client_name) { Faker::Name.name }
+  let(:client_name) { Faker::Name.name[0..8] }
   let(:client_message_1) { Faker::Lorem.sentence(3) }
   let(:client_message_2) { Faker::Lorem.sentence(3) }
   let(:agent_message_1) { Faker::Lorem.sentence(3) }

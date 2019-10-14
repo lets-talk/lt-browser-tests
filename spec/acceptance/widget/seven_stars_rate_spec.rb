@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'rate', retry: 3, type: feature do
-  let(:client_name) { Faker::Name.name }
+  let(:client_name) { Faker::Name.name[0..8] }
   let(:agent) {
     SessionSteps::Agent.new(
       email: ENV['AGENT_EMAIL'],

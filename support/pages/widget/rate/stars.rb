@@ -21,7 +21,7 @@ module Pages
         def expect_new_conversation_message
           session.within_frame 'lt-messenger-iframe' do
             expect(session).to have_text(
-              'Comenzar nueva conversación'
+              'Start new conversation'
             )
           end
         end

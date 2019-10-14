@@ -11,7 +11,7 @@ module Pages
     class Messages < Page
       def send_message(message:)
         session.within_frame 'lt-messenger-iframe' do
-          session.fill_in 'Escribe un mensaje...', with: message
+          session.fill_in 'Type message...', with: message
           session.click_button 'widget-send-message'
         end
       end
