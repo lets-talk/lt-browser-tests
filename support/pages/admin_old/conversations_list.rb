@@ -16,18 +16,18 @@ module Pages
       end
 
       def expect_no_conversation(client_name:)
-        session.within '#conversations-list' do
+        session.within '#conversations' do
           expect(session).to have_no_selector(
-            'div.conversation strong[ng-show="conversation.title"]',
+            'div.conversation strong',
             text: client_name
           )
         end
       end
 
       def click_new_conversation(client_name:)
-        session.within '#conversations-list' do
+        session.within '#conversations' do
           session.find(
-            'div.conversation strong[ng-show="conversation.title"]',
+            'div.conversation strong',
             text: client_name
           ).click
         end
