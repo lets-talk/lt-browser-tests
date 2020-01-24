@@ -32,6 +32,10 @@ describe 'rate', retry: 3, type: feature do
     client.inquiries.select_inquiry(name: 'Support')
     client.messages.send_message(message: client_message_1)
 
+    sleep 5
+
+    client.messages.send_message(message: client_message_1)
+
     # Agent check new client conversation, select conversation
     agent.conversations_list.click_new_conversation(client_name: client_name)
     agent.messages.join_current_conversation

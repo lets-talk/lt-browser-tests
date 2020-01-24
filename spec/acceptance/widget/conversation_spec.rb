@@ -31,7 +31,9 @@ describe 'conversation', retry: 3, type: feature do
     client.login.login
     client.inquiries.select_inquiry(name: 'Support')
     client.messages.send_message(message: client_message_1)
+
     sleep 5
+
     client.messages.send_message(message: client_message_1)
 
     # Agent check new client conversation, select conversation
