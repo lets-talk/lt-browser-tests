@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Hotfix [0.2.2] - 2020-01-24
 ### Fixed
+- Update Readme file with instructions to run specs locally with dockerized camperfarm
+
+## Hotfix [0.2.2] - 2020-01-24
+### Fixed
 - Conversation title matcher
 
 ## Hotfix [0.2.1] - 2020-01-24
